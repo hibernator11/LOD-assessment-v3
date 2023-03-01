@@ -36,7 +36,7 @@ PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX sioc: <http://rdfs.org/sioc/services#>
 
-START=@weso-s:ConferenceInstance
+START=@weso-s:Paper
 
 weso-s:Affiliation
 {
@@ -79,19 +79,30 @@ weso-s:ConferenceInstance
             
 }
 
+weso-s:ConferenceSeries
+{
+   rdf:type  [<https://makg.org/class/ConferenceSeries>]  ;
+   dc-terms:created  xsd:date  ;
+   <http://xmlns.com/foaf/0.1/name>  xsd:string  ;
+   <https://makg.org/property/citationCount>  xsd:integer  ;
+   <https://makg.org/property/paperCount>  xsd:integer  ;   
+   <https://makg.org/property/paperFamilyCount>  xsd:integer  ;
+   <https://makg.org/property/rank>  xsd:integer
+}
+
 weso-s:JournalArticle
 {
    rdf:type  [<https://makg.org/class/JournalArticle>]  ;          # 100.0 %
    rdf:type  [<https://makg.org/class/Paper>]  ;               # 100.0 %
-   dc-terms:created  xsd:string  ;                             # 100.0 %
-   <https://makg.org/property/citationCount>  xsd:string  ;          # 100.0 %
-   <https://makg.org/property/rank>  xsd:string  ;             # 100.0 %
+   dc-terms:created  xsd:date  ;                             # 100.0 %
+   <https://makg.org/property/citationCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/rank>  xsd:integer  ;             # 100.0 %
    <http://purl.org/spar/fabio/hasURL>  IRI  +;                # 100.0 %
    <http://prismstandard.org/namespaces/basic/2.0/publicationDate>  xsd:string  ;          # 100.0 %
-   dc-terms:title  xsd:string  ;                               # 100.0 %
+   dc-terms:title  xsd:date  ;                               # 100.0 %
    <https://makg.org/property/appearsInJournal>  IRI  ;          # 100.0 %
-   <https://makg.org/property/estimatedCitationCount>  xsd:string  ;          # 100.0 %
-   <https://makg.org/property/referenceCount>  xsd:string  ;          # 100.0 %
+   <https://makg.org/property/estimatedCitationCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/referenceCount>  xsd:integer  ;          # 100.0 %
    dc-terms:creator  IRI  +;                                   # 100.0 %
    <http://purl.org/spar/fabio/hasPubMedId>  IRI  *;
             # 99.8 % obj: IRI. Cardinality: +
@@ -110,15 +121,38 @@ weso-s:JournalArticle
             # 80.2 % obj: xsd:string. Cardinality: {1}
    <http://purl.org/spar/fabio/hasDiscipline>  IRI  ?
             # 80.2 % obj: IRI. Cardinality: {1}
-}"""
+}
+
+weso-s:Paper
+{
+   rdf:type  [<https://makg.org/class/Paper>] * ;               # 100.0 %
+   rdf:type  [<https://makg.org/class/JournalArticle>] *; 
+   rdf:type  [<http://purl.org/spar/fabio/PatentDocument>]  *; 
+   rdf:type  [<http://purl.org/spar/fabio/ConferencePaper>]  *;
+   rdf:type  [<http://purl.org/spar/fabio/Book>]  *;
+   dc-terms:created  xsd:date  ;                             # 100.0 %
+   <https://makg.org/property/citationCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/rank>  xsd:integer  ;             # 100.0 %
+   <http://prismstandard.org/namespaces/basic/2.0/publicationDate>  xsd:date  ;          # 100.0 %
+   dc-terms:title  xsd:string  +;                              # 100.0 %
+   <https://makg.org/property/estimatedCitationCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/referenceCount>  xsd:integer  ;          # 100.0 %
+   dc-terms:creator  IRI  +;                                   # 100.0 %
+   <http://purl.org/spar/fabio/hasURL>  xsd:anyURI *
+            # 88.96853843090402 % obj: IRI. Cardinality: +
+}
+"""
 
 
 
-i = 2600
-size = 100
+i = 14600
+size = 200
 #max = 27000 Affiliation
 #max = 17000 ConferenceInstance
-max = 5000
+#max = 54800 ConferenceSeries
+#max = 20000 JournalArticle
+#max = 20000 Paper
+max = 15000
 
 
 
@@ -130,7 +164,7 @@ while i < max:
     PREFIX makg: <https://makg.org/class/>
 
     SELECT DISTINCT ?item WHERE {
-      ?item rdf:type makg:ConferenceInstance
+      ?item rdf:type makg:Paper
     }
     """
     print(i)
