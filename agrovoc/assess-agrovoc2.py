@@ -22,7 +22,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 SELECT DISTINCT ?item WHERE {
   ?item rdf:type skos:Concept
 }
-LIMIT 1000 offset 19000
+LIMIT 1000 offset 12000
 """
 
 # ShEx Expression

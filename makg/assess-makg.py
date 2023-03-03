@@ -36,7 +36,7 @@ PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX sioc: <http://rdfs.org/sioc/services#>
 
-START=@weso-s:Paper
+START=@weso-s:Citation
 
 weso-s:Affiliation
 {
@@ -141,18 +141,66 @@ weso-s:Paper
    <http://purl.org/spar/fabio/hasURL>  xsd:anyURI *
             # 88.96853843090402 % obj: IRI. Cardinality: +
 }
+
+weso-s:PatentDocument
+{
+   rdf:type  [<http://purl.org/spar/fabio/PatentDocument>]  ;          # 100.0 %
+   rdf:type  [<https://makg.org/class/Paper>]  ;               # 100.0 %
+   dc-terms:created  xsd:date  ;                             # 100.0 %
+   <https://makg.org/property/citationCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/rank>  xsd:integer  ;             # 100.0 %
+   <http://purl.org/spar/fabio/hasPatentNumber>  xsd:string  +;          # 100.0 %
+   <http://dbpedia.org/ontology/patent>  IRI  +;               # 100.0 %
+   <http://purl.org/spar/fabio/hasURL>  xsd:anyURI  +;                # 100.0 %
+   <http://prismstandard.org/namespaces/basic/2.0/publicationDate>  xsd:date  ;          # 100.0 %
+   dc-terms:title  xsd:string  ;                               # 100.0 %
+   <https://makg.org/property/estimatedCitationCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/referenceCount>  xsd:integer  ;          # 100.0 %
+   dc-terms:creator  IRI  +;                                   # 100.0 %
+   <http://purl.org/spar/cito/cites>  IRI  *;
+            # 92.60000000000001 % obj: IRI. Cardinality: +
+   <http://prismstandard.org/namespaces/basic/2.0/keyword>  xsd:string  *;
+            # 89.8 % obj: xsd:string. Cardinality: +
+            # 87.0 % obj: xsd:string. Cardinality: {5}
+   dc-terms:abstract  xsd:string  ?;
+            # 89.8 % obj: xsd:string. Cardinality: {1}
+   <http://purl.org/spar/fabio/hasDiscipline>  IRI  ?
+            # 89.8 % obj: IRI. Cardinality: {1}
+}
+
+weso-s:Author
+{
+   rdf:type  [<https://makg.org/class/Author>]  ;              # 100.0 %
+   dc-terms:created  xsd:date  ;                             # 100.0 %
+   <http://xmlns.com/foaf/0.1/name>  xsd:string  ;             # 100.0 %
+   <https://makg.org/property/citationCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/paperCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/paperFamilyCount>  xsd:integer  ;          # 100.0 %
+   <https://makg.org/property/rank>  xsd:integer                # 100.0 %
+}
+
+weso-s:Citation
+{
+   rdf:type  [<https://makg.org/class/Citation>]  ;            # 100.0 %
+   <http://purl.org/spar/c4o/hasContext>  xsd:string  +;          # 100.0 %
+   <http://purl.org/spar/cito/hasCitedEntity>  IRI  ;          # 100.0 %
+   <http://purl.org/spar/cito/hasCitingEntity>  IRI            # 100.0 %
+}
 """
 
 
 
-i = 14600
+i = 16800
 size = 200
 #max = 27000 Affiliation
 #max = 17000 ConferenceInstance
 #max = 54800 ConferenceSeries
 #max = 20000 JournalArticle
 #max = 20000 Paper
-max = 15000
+#max = 20000 PatentDocument
+#max = 20000 Author
+#max = 20000 Citation
+max = 20000
 
 
 
@@ -162,9 +210,10 @@ while i < max:
     sparql = """
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX makg: <https://makg.org/class/>
+    PREFIX fabio: <http://purl.org/spar/fabio/PatentDocument>
 
     SELECT DISTINCT ?item WHERE {
-      ?item rdf:type makg:Paper
+      ?item rdf:type makg:Citation
     }
     """
     print(i)
