@@ -34,7 +34,7 @@ PREFIX skos-xl: <http://www.w3.org/2008/05/skos-xl#>
 PREFIX qb: <http://purl.org/linked-data/cube#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 
-START=@weso-s:DataStructureDefinition
+START=@weso-s:Collection
 
 weso-s:Observation
 {
@@ -102,7 +102,9 @@ weso-s:ComponentSpecification
 
 weso-s:Collection
 {
-   rdf:type  [skos:Collection]  ;                              # 100.0 %
+   rdf:type  [skos:Collection]  ?;                              # 100.0 %
+   rdf:type  [<http://publishmydata.com/def/ontology/foi/AreaCollection>] ?;
+   rdf:type  [<http://publishmydata.com/def/ontology/foi/OrgCollection>] ?;
    skos:member  IRI  *
             # 95.39999999999999 % obj: IRI. Cardinality: +
 }
@@ -110,9 +112,9 @@ weso-s:Collection
 
 
 
-i = 0
-size = 100
-max = 400
+i = 400
+size = 200
+max = 600
 
 
 while i < max:
@@ -121,9 +123,10 @@ while i < max:
     sparql = """
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX qb: <http://purl.org/linked-data/cube#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     SELECT DISTINCT ?item WHERE {
-      ?item rdf:type qb:DataStructureDefinition
+      ?item rdf:type skos:Collection 
     }
     """
     print(i)
