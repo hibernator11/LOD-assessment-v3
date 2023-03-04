@@ -1,0 +1,30 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX weso-s: <http://weso.es/shapes/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX schema: <http://schema.org/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX creativeCommons: <http://creativecommons.org/ns#>
+PREFIX dc-terms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX skos-xl: <http://www.w3.org/2008/05/skos-xl#>
+PREFIX par: <https://id.parliament.uk/schema/>
+
+weso-s:AnswerExpectation
+{
+   rdf:type  [rdfs:Resource]  ;                                # 100.0 %
+   rdf:type  [par:TemporalThing]  ;                            # 100.0 %
+   rdf:type  [par:AnswerExpectation]  ;                        # 100.0 %
+   rdf:type  [par:WrittenAnswerExpectation]  ;                 # 100.0 %
+   par:startDate  xsd:string  ;                                # 100.0 %
+   par:answerExpectationStartDate  xsd:string  ;               # 100.0 %
+   par:answerExpectationHasQuestion  IRI  ;                    # 100.0 %
+   par:writtenAnswerExpectationHasQuestion  IRI  ;             # 100.0 %
+   par:date  xsd:string                                        # 100.0 %
+}
+
+

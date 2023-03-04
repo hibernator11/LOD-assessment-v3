@@ -1,0 +1,58 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX weso-s: <http://weso.es/shapes/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX schema: <http://schema.org/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX creativeCommons: <http://creativecommons.org/ns#>
+PREFIX dc-terms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX skos-xl: <http://www.w3.org/2008/05/skos-xl#>
+PREFIX nobel: <http://data.nobelprize.org/terms/>
+
+weso-s:E39_Actor
+{
+   rdf:type  [cidoc-crm:E39_Actor]  ;                          # 100.0 %
+   rdfs:label  rdf:langString  *;
+            # 99.8 % obj: rdf:langString. Cardinality: +
+            # 98.0 % obj: rdf:langString. Cardinality: {1}
+   <http://purl.org/spar/pro/holdsRoleInTime>  IRI  *;
+            # 99.4 % obj: IRI. Cardinality: +
+   cidoc-crm:P76_has_contact_point  IRI  *
+            # 97.0 % obj: IRI. Cardinality: +
+            # 80.4 % obj: IRI. Cardinality: {1}
+}
+
+
+weso-s:E53_Place
+{
+   rdf:type  [cidoc-crm:E53_Place]  ;                          # 100.0 %
+   rdfs:label  rdf:langString  +                               # 100.0 %
+}
+
+
+weso-s:E65_Creation
+{
+   rdf:type  [cidoc-crm:E65_Creation]  ;                       # 100.0 %
+   rdfs:label  rdf:langString  {2};                            # 100.0 %
+   cidoc-crm:P14_carried_out_by  IRI                           # 100.0 %
+}
+
+
+weso-s:E35_Title
+{
+   rdf:type  [cidoc-crm:E35_Title]                             # 100.0 %
+}
+
+
+weso-s:E22_Man-Made_Object
+{
+   rdf:type  [cidoc-crm:E22_Man-Made_Object]  ;                # 100.0 %
+   rdfs:label  rdf:langString  {2}                             # 100.0 %
+}
+
+
