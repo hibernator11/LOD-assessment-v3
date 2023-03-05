@@ -1,5 +1,11 @@
 # LOD-assessment-v3
-This project provides a list of examples for the assessment of LOD repositories using [Shape Expressions](https://shexspec.github.io/primer/).
+This project provides a list of examples for the assessment of LOD repositories using [Shape Expressions](https://shexspec.github.io/primer/). The following repositories have been assessed:
+
+- Agrovoc: https://agrovoc.fao.org/sparql
+- datos.gob.es: https://datos.gob.es/es/sparql
+- Microsoft Academic Knowledge Graph (MAKG): https://makg.org/sparql
+- Scotland's official statistics: https://statistics.gov.scot/sparql
+- Zeri Photo Archive: http://data.fondazionezeri.unibo.it/
 
 
 ## Jupyter Notebooks
