@@ -4,8 +4,11 @@ import scipy.stats as st
 # makg:JournalArticle
 #data = [1000,1000,1000,1000,995,1000,1000,1000,997,1000,1000,996,1000,996,1000,999,997,1000,998,999]
 
-# http://purl.org/spar/fabio/PatentDocument
+#  makg http://purl.org/spar/fabio/PatentDocument
 data = [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,999,1000,1000,1000,1000,1000,1000]
+
+# datos.gob.es dcat:Distribution
+#data = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 
 # confidence interval 95% 

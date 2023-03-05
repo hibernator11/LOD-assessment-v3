@@ -83,9 +83,9 @@ weso-s:E22_Man-Made_Object
 """
 
 
-i = 500
+i = 15000
 size = 250
-max = 5000
+max = 20000
 
 
 while i < max:
