@@ -7,6 +7,8 @@ This project provides a list of examples for the assessment of LOD repositories 
 - Scotland's official statistics: https://statistics.gov.scot/sparql
 - Zeri Photo Archive: http://data.fondazionezeri.unibo.it/
 
+A colletion of scripts has been created to automatically generate the ShEx schemas and to assess them against the RDF datasets.
+
 
 ## Jupyter Notebooks
 
