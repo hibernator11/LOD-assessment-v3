@@ -34,7 +34,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 
 
-START=@weso-s:Dataset
+START=@weso-s:PeriodOfTime
 
 weso-s:Distribution
 {
@@ -81,8 +81,8 @@ weso-s:DurationDescription
 weso-s:PeriodOfTime
 {
    rdf:type  [dc-terms:PeriodOfTime]  ;                        # 100.0 %
-   schema:startDate  xsd:string  ;                             # 100.0 %
-   schema:endDate  xsd:string  ?
+   schema:startDate  xsd:dateTime  ;                             # 100.0 %
+   schema:endDate  xsd:dateTime  ?
             # 93.0 % obj: xsd:string. Cardinality: {1}
 }
 
@@ -98,9 +98,10 @@ weso-s:Concept
 """
 
 
-i = 100
-size = 250
-max = 1000
+
+i=3300
+size = 100
+max = 10000
 
 errors = 0
 while i < max:
@@ -109,9 +110,10 @@ while i < max:
     sparql = """
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX dcat: <http://www.w3.org/ns/dcat#>
+    PREFIX dc-terms: <http://purl.org/dc/terms/>
 
     SELECT DISTINCT ?item WHERE {
-      ?item rdf:type dcat:Dataset
+      ?item rdf:type dc-terms:PeriodOfTime
     }
     """
     print(i)
