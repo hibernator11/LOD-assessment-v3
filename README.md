@@ -6,4 +6,4 @@ This project provides a list of examples for the assessment of LOD repositories 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hibernator11/LOD-assessment-v3/HEAD)
 
-A collection of Jupyter Notebooks has been created in order to illustrate how the ShEx schemas can be generated and used to assess RDF data.
+A collection of [Jupyter Notebooks](https://jupyter.org/) has been created in order to illustrate how the ShEx schemas can be generated and used to assess RDF data. A Jupyter Notebook includes text and code and be run in cloud environment such as [binder](https://mybinder.org/). Users are able to reproduce the code and to obtain the same results.
