@@ -1,0 +1,36 @@
+@prefix : <http://www.example.org/#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ldqv: <https://www.w3.org/2016/05/ldqd> .
+
+:myAgrovocDataset 
+    a dcat:Dataset ;
+    dcterms:title "Agrovoc" ; 
+    dcat:distribution :myAgrovocSPARQLDatasetDistribution
+    .
+	
+:myAgrovocSPARQLDatasetDistribution
+    a dcat:Distribution ;
+    dcat:accessURL <http://data.fondazionezeri.unibo.it/sparql>
+    dcterms:title "SPARQL access to the Agrovoc dataset" ;
+    dcat:mediaType "application/sparql-results+json"  
+	dqv:hasQualityMeasurement :myAgrovocMeasurement1
+    .
+
+
+:ShExConsistencyMetric
+    a dqv:Metric ;
+    skos:definition "It checks the ratio of conformant resources according to a Shape Expression schema."@en ;
+    dqv:inDimension ldqv:consistency ;
+    dqv:expectedDataType xsd:decimal
+    .
+
+
+:myAgrovocMeasurement1 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myAgrovocDatasetDistribution ;
+    dqv:isMeasurementOf :ShExConsistencyMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
