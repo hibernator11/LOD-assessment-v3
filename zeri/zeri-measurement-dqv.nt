@@ -15,8 +15,8 @@
     a dcat:Distribution ;
     dcat:accessURL <http://data.fondazionezeri.unibo.it/sparql>
     dcterms:title "SPARQL access to the Zeri Photo Archive dataset" ;
-    dcat:mediaType "application/sparql-results+json"  
-	dqv:hasQualityMeasurement :myZeriMeasurement1
+    dcat:mediaType "application/sparql-results+json" ;
+    dqv:hasQualityMeasurement :myZeriMeasurement1
     .
 
 :ShExConsistencyMetric
