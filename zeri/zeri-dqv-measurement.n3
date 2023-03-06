@@ -1,22 +1,23 @@
-@prefix : <http://www.example.org/#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ldqv: <https://www.w3.org/2016/05/ldqd> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+@prefix : <http://www.example.org/#> .
 
-:myDatosDataset 
+:myZeriDataset 
     a dcat:Dataset ;
-    dcterms:title "datos.gob.es" ; 
-    dcat:distribution :myDatosSPARQLDatasetDistribution
+    dcterms:title "Zeri Photo Archive" ; 
+    dcat:distribution :myZeriSPARQLDatasetDistribution
     .
 	
-:myDatosSPARQLDatasetDistribution
+:myZeriSPARQLDatasetDistribution
     a dcat:Distribution ;
-    dcat:accessURL <https://datos.gob.es/virtuoso/sparql>
-    dcterms:title "SPARQL access to the datos.gob.es dataset" ;
-    dcat:mediaType "application/sparql-results+json"  ;
-    dqv:hasQualityMeasurement :myDatosMeasurement1
+    dcat:accessURL <http://data.fondazionezeri.unibo.it/sparql> ;
+    dcterms:title "SPARQL access to the Zeri Photo Archive dataset" ;
+    dcat:mediaType "application/sparql-results+json" ;
+    dqv:hasQualityMeasurement :myZeriMeasurement1
     .
 
 :ShExConsistencyMetric
@@ -26,9 +27,9 @@
     dqv:expectedDataType xsd:decimal
     .
 
-:myDatosMeasurement1 
+:myZeriMeasurement1 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myDatosDatasetDistribution ;
+    dqv:computedOn :myZeriDatasetDistribution ;
     dqv:isMeasurementOf :ShExConsistencyMetric ;
-    dqv:value "0.77"^^xsd:decimal 
+    dqv:value "0.99"^^xsd:decimal 
     .

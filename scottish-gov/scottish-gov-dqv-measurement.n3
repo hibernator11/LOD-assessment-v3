@@ -1,22 +1,23 @@
-@prefix : <http://www.example.org/#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ldqv: <https://www.w3.org/2016/05/ldqd> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+@prefix : <http://www.example.org/#> .
 
-:myAgrovocDataset 
+:myScottishGovDataset 
     a dcat:Dataset ;
-    dcterms:title "Agrovoc" ; 
-    dcat:distribution :myAgrovocSPARQLDatasetDistribution
+    dcterms:title "Scottish Government" ; 
+    dcat:distribution :myScottishGovSPARQLDatasetDistribution
     .
 	
-:myAgrovocSPARQLDatasetDistribution
+:myScottishGovSPARQLDatasetDistribution
     a dcat:Distribution ;
-    dcat:accessURL <https://agrovoc.fao.org/sparql>
-    dcterms:title "SPARQL access to the Agrovoc dataset" ;
-    dcat:mediaType "application/sparql-results+json" ;
-    dqv:hasQualityMeasurement :myAgrovocMeasurement1
+    dcat:accessURL <https://statistics.gov.scot/sparql> ;
+    dcterms:title "SPARQL access to the Scottish Government dataset" ;
+    dcat:mediaType "application/sparql-results+json"  ;
+    dqv:hasQualityMeasurement :myScottishGovMeasurement1
     .
 
 :ShExConsistencyMetric
@@ -26,9 +27,9 @@
     dqv:expectedDataType xsd:decimal
     .
 
-:myAgrovocMeasurement1 
+:myScottishGovMeasurement1 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myAgrovocDatasetDistribution ;
+    dqv:computedOn :myScottishGovDatasetDistribution ;
     dqv:isMeasurementOf :ShExConsistencyMetric ;
     dqv:value "1"^^xsd:decimal 
     .

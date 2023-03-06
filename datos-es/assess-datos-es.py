@@ -34,7 +34,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 
 
-START=@weso-s:PeriodOfTime
+START=@weso-s:Dataset
 
 weso-s:Distribution
 {
@@ -99,9 +99,9 @@ weso-s:Concept
 
 
 
-i=3300
+i=10600
 size = 100
-max = 10000
+max = 15000
 
 errors = 0
 while i < max:
@@ -113,7 +113,7 @@ while i < max:
     PREFIX dc-terms: <http://purl.org/dc/terms/>
 
     SELECT DISTINCT ?item WHERE {
-      ?item rdf:type dc-terms:PeriodOfTime
+      ?item rdf:type dcat:Dataset
     }
     """
     print(i)

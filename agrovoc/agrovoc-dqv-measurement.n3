@@ -1,22 +1,24 @@
-@prefix : <http://www.example.org/#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ldqv: <https://www.w3.org/2016/05/ldqd> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+@prefix : <http://www.example.org/#> .
 
-:myMAKGDataset 
+
+:myAgrovocDataset 
     a dcat:Dataset ;
-    dcterms:title "Microsoft Academic Knowledge Graph" ; 
-    dcat:distribution :myMAKGSPARQLDatasetDistribution
+    dcterms:title "Agrovoc" ; 
+    dcat:distribution :myAgrovocSPARQLDatasetDistribution
     .
 	
-:myMAKGSPARQLDatasetDistribution
+:myAgrovocSPARQLDatasetDistribution
     a dcat:Distribution ;
-    dcat:accessURL <https://makg.org/sparql>
-    dcterms:title "SPARQL access to the Microsoft Academic Knowledge Graph dataset" ;
+    dcat:accessURL <https://agrovoc.fao.org/sparql> ;
+    dcterms:title "SPARQL access to the Agrovoc dataset" ;
     dcat:mediaType "application/sparql-results+json" ;
-    dqv:hasQualityMeasurement :myMAKGMeasurement1
+    dqv:hasQualityMeasurement :myAgrovocMeasurement1
     .
 
 :ShExConsistencyMetric
@@ -25,10 +27,10 @@
     dqv:inDimension ldqv:consistency ;
     dqv:expectedDataType xsd:decimal
     .
-    
-:myMAKGMeasurement1 
+
+:myAgrovocMeasurement1 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myMAKGDatasetDistribution ;
+    dqv:computedOn :myAgrovocDatasetDistribution ;
     dqv:isMeasurementOf :ShExConsistencyMetric ;
-    dqv:value "0.99"^^xsd:decimal 
+    dqv:value "1"^^xsd:decimal 
     .
