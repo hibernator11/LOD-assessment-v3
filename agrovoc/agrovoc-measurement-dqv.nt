@@ -13,12 +13,11 @@
 	
 :myAgrovocSPARQLDatasetDistribution
     a dcat:Distribution ;
-    dcat:accessURL <http://data.fondazionezeri.unibo.it/sparql>
+    dcat:accessURL <https://agrovoc.fao.org/sparql>
     dcterms:title "SPARQL access to the Agrovoc dataset" ;
-    dcat:mediaType "application/sparql-results+json"  
-	dqv:hasQualityMeasurement :myAgrovocMeasurement1
+    dcat:mediaType "application/sparql-results+json" ;
+    dqv:hasQualityMeasurement :myAgrovocMeasurement1
     .
-
 
 :ShExConsistencyMetric
     a dqv:Metric ;
@@ -26,7 +25,6 @@
     dqv:inDimension ldqv:consistency ;
     dqv:expectedDataType xsd:decimal
     .
-
 
 :myAgrovocMeasurement1 
     a dqv:QualityMeasurement ;
