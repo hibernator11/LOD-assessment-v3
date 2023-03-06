@@ -15,10 +15,9 @@
     a dcat:Distribution ;
     dcat:accessURL <https://makg.org/sparql>
     dcterms:title "SPARQL access to the Microsoft Academic Knowledge Graph dataset" ;
-    dcat:mediaType "application/sparql-results+json"  
-	dqv:hasQualityMeasurement :myMAKGMeasurement1
+    dcat:mediaType "application/sparql-results+json" ;
+    dqv:hasQualityMeasurement :myMAKGMeasurement1
     .
-
 
 :ShExConsistencyMetric
     a dqv:Metric ;
