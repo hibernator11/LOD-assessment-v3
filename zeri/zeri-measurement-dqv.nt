@@ -1,0 +1,34 @@
+@prefix : <http://www.example.org/#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ldqv: <https://www.w3.org/2016/05/ldqd> .
+
+:myZeriDataset 
+    a dcat:Dataset ;
+    dcterms:title "Zeri Photo Archive" ; 
+    dcat:distribution :myZeriSPARQLDatasetDistribution
+    .
+	
+:myZeriSPARQLDatasetDistribution
+    a dcat:Distribution ;
+    dcat:accessURL <http://data.fondazionezeri.unibo.it/sparql>
+    dcterms:title "SPARQL access to the Zeri Photo Archive dataset" ;
+    dcat:mediaType "application/sparql-results+json"  
+	dqv:hasQualityMeasurement :myZeriMeasurement1
+    .
+
+:ShExConsistencyMetric
+    a dqv:Metric ;
+    skos:definition "It checks the ratio of conformant resources according to a Shape Expression schema."@en ;
+    dqv:inDimension ldqv:consistency ;
+    dqv:expectedDataType xsd:decimal
+    .
+
+:myZeriMeasurement1 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myZeriDatasetDistribution ;
+    dqv:isMeasurementOf :ShExConsistencyMetric ;
+    dqv:value "0.99"^^xsd:decimal 
+    .
