@@ -1,0 +1,35 @@
+@prefix : <http://www.example.org/#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ldqv: <https://www.w3.org/2016/05/ldqd> .
+
+:myMAKGDataset 
+    a dcat:Dataset ;
+    dcterms:title "Microsoft Academic Knowledge Graph" ; 
+    dcat:distribution :myMAKGSPARQLDatasetDistribution
+    .
+	
+:myMAKGSPARQLDatasetDistribution
+    a dcat:Distribution ;
+    dcat:accessURL <https://makg.org/sparql>
+    dcterms:title "SPARQL access to the Microsoft Academic Knowledge Graph dataset" ;
+    dcat:mediaType "application/sparql-results+json"  
+	dqv:hasQualityMeasurement :myMAKGMeasurement1
+    .
+
+
+:ShExConsistencyMetric
+    a dqv:Metric ;
+    skos:definition "It checks the ratio of conformant resources according to a Shape Expression schema."@en ;
+    dqv:inDimension ldqv:consistency ;
+    dqv:expectedDataType xsd:decimal
+    .
+    
+:myMAKGMeasurement1 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myMAKGDatasetDistribution ;
+    dqv:isMeasurementOf :ShExConsistencyMetric ;
+    dqv:value "0.99"^^xsd:decimal 
+    .
