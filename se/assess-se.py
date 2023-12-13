@@ -7,7 +7,6 @@ Created on Wed Feb 15 15:05:24 2023
 """
 
 from pyshex.shex_evaluator import ShExEvaluator
-from pyshex.user_agent import SlurpyGraphWithAgent
 from pyshex.utils.sparql_query import SPARQLQuery
 
 # SPARQL Endpoint
