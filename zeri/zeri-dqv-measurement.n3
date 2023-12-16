@@ -1,4 +1,4 @@
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -6,37 +6,35 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema> .
 @prefix : <http://www.example.org/#> .
 
-
 :myZeriDataset a void:Dataset;
     dcterms:title "Zeri Photo Archive";
     dcterms:description "The Zeri Photo Archive AS Linked Open Data mostly regard artworks of Modern Art (15th-16th centuries): about 19.000 works of art and more than 30.000 photographs depicting such works are accurately described by means of like 11 million of RDF statements.";
     dcterms:creator :org_ZERI;
     dcterms:source <https://doi.org/10.1145/3051487>;
-	dcterms:source <http://dx.doi.org/10.1109/JCDL.2014.6970182>;
+    dcterms:source <http://dx.doi.org/10.1109/JCDL.2014.6970182>;
     dcterms:issued "2016-04-01"^^xsd:date;
-	dcterms:license <http://creativecommons.org/licenses/by/4.0/>;
-	void:feature <http://www.w3.org/ns/formats/RDF_XML>;
-	void:sparqlEndpoint <http://data.fondazionezeri.unibo.it/sparql>;
-	void:dataDump <https://doi.org/10.6092/unibo/amsacta/5497>;
-	void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
-	void:triples 11992769; 
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/>;
+    void:feature <http://www.w3.org/ns/formats/RDF_XML>;
+    void:sparqlEndpoint <http://data.fondazionezeri.unibo.it/sparql>;
+    void:dataDump <https://doi.org/10.6092/unibo/amsacta/5497>;
+    void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
+    void:triples 11992769; 
     void:entities 1797889;
-	void:classes 105;
-	void:properties 125;
-	void:exampleResource <https://w3id.org/zericatalog/person/1017/barisini-tommaso>;
-	void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
-	dqv:hasQualityMeasurement :myZeriMeasurementConsistency ;
-	dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
-	dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
-	dqv:hasQualityMeasurement :myZeriMeasurementLanguages ;
-	dqv:hasQualityMeasurement :myZeriMeasurementURIs ;
+    void:classes 105;
+    void:properties 125;
+    void:exampleResource <https://w3id.org/zericatalog/person/1017/barisini-tommaso>;
+    void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
+    dqv:hasQualityMeasurement :myZeriMeasurementConsistency ;
+    dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
+    dqv:hasQualityMeasurement :myZeriMeasurementLanguages ;
+    dqv:hasQualityMeasurement :myZeriMeasurementURIs 
     .
-	
+    
 :org_ZERI a foaf:Organization;
     rdfs:label "Federico Zeri Foundation ";
     foaf:homepage <https://fondazionezeri.unibo.it/it>;
     .
-
 
 :ShExConsistencyMetric
     a dqv:Metric ;
@@ -65,7 +63,7 @@
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal
     .
-	
+    
 :SytancticMetric
     a dqv:Metric ;
     skos:definition "It assesses the syntactic validity of RDF documents."@en ;
@@ -79,7 +77,7 @@
     dqv:isMeasurementOf :SytancticMetric ;
     dqv:value "1"^^xsd:decimal 
     .
-	
+    
 :LanguagesMetric
     a dqv:Metric ;
     skos:definition "It checks if the metadata include labels in multiple languages."@en ;
@@ -93,7 +91,7 @@
     dqv:isMeasurementOf :LanguagesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
-	
+    
 :URIsMetric
     a dqv:Metric ;
     skos:definition "It checks the use of self-describing URIs instead of identifiers"@en ;
@@ -106,4 +104,4 @@
     dqv:computedOn :myZeriDataset ;
     dqv:isMeasurementOf :URIsMetric ;
     dqv:value "1"^^xsd:decimal 
-    .	
+    .    
